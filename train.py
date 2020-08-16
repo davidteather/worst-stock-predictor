@@ -15,7 +15,7 @@ import time
 import os
 import random
 
-evaluate_bool = True
+evaluate_bool = False
 
 
 # set seed, so we can get the same results after rerunning several times
@@ -150,7 +150,7 @@ OPTIMIZER = "adam"
 BATCH_SIZE = 64
 EPOCHS = 500
 # Apple stock market
-ticker = "GOOGL"
+ticker = "AAPL"
 ticker_data_filename = os.path.join("data_all", f"{ticker}_{date_now}.csv")
 # model name to save, making it as unique as possible based on parameters
 # model_name = f"{date_now}_{ticker}-{LOSS}-{OPTIMIZER}-{CELL.__name__}-seq-{N_STEPS}-step-{LOOKUP_STEP}-layers-{N_LAYERS}-units-{UNITS}"
@@ -170,10 +170,11 @@ if not evaluate_bool:
 
     # load the data
     data = load_data(ticker, N_STEPS, lookup_step=LOOKUP_STEP,
-                     test_size=TEST_SIZE, feature_columns=FEATURE_COLUMNS)
+                    test_size=TEST_SIZE, feature_columns=FEATURE_COLUMNS)
 
     # save the dataframe
     data["df"].to_csv(ticker_data_filename)
+
 
     # construct the model
     model = create_model(N_STEPS, loss=LOSS, units=UNITS, cell=CELL, n_layers=N_LAYERS,
