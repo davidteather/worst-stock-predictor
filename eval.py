@@ -235,7 +235,7 @@ for i in tqdm(range(len(stocks_json))):
 
         stocks_held = []
         cash = 10000
-        days_to_trade = 365
+        days_to_trade = 365 + 1
 
         y_test = data['y_test']
         X_test = data['X_test']
@@ -254,9 +254,9 @@ for i in tqdm(range(len(stocks_json))):
         #
 
         # Bad Actions
-        for x in range(len(y_test)):
+        for x in range(len(y_test)-1):
             current_price = y_test[x]
-            tomorrows_price = y_pred[x]
+            tomorrows_price = y_pred[x+1]
 
             if tomorrows_price < current_price:
                 # Buy
