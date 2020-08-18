@@ -24,6 +24,7 @@ import string
 import json
 
 evaluate_bool = True
+ticker = "OIL"
 
 
 # set seed, so we can get the same results after rerunning several times
@@ -170,9 +171,6 @@ model = create_model(N_STEPS, loss=LOSS, units=UNITS, cell=CELL, n_layers=N_LAYE
 model_path = os.path.join("results", model_name) + ".h5"
 model.load_weights(model_path)
 
-# TODO: LOOP HERE
-
-ticker = "OIL"
 ticker_data_filename = os.path.join("data_all", f"{ticker}_{date_now}.csv")
 
 

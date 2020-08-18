@@ -1,2 +1,8 @@
-keras
 tensorflow-gpu
+pandas
+numpy
+matplotlib
+yahoo_fin
+sklearn
+requests
+tqdm
